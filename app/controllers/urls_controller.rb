@@ -1,3 +1,7 @@
+##
+# Exposes usual REST operations on URL model (without edit/update),
+# as well as a 'go' action to redirect to original URL
+# 
 class UrlsController < ApplicationController
   before_action :set_url, only: [:show, :destroy]
 
@@ -55,6 +59,7 @@ class UrlsController < ApplicationController
     end
   end
 
+  # GET /urls/go/rst45a
   def go
     @url = Url.where(short: params[:short]).first
     if (@url.nil?)
@@ -78,6 +83,6 @@ class UrlsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def url_params
-      params.require(:url).permit(:long, :short)
+      params.require(:url).permit(:long)
     end
 end
