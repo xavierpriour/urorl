@@ -1,0 +1,35 @@
+<div class="container show">
+  <div class="row">
+    <div class="col-sm-12">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+
+  <div class="row url">
+    <div class="col-sm-12">
+      <%= link_to @url.long, @url.long%>
+      <br/>
+      <i class="glyphicon glyphicon-arrow-down"></i>
+      <br/>
+      <%= link_short @url %>
+      <br/>
+    </div>
+  </div>
+
+  <div class="row ratio">
+    <div class="col-sm-12">
+      <% if @url.ratio < 1 %>
+        We achieved a glorious reduction ratio of
+        <strong><%= '%.2f%' % ((1-@url.ratio)*100) %></strong>
+      <% else %>
+        Not much of an URL <strong>shortening</strong> this time...
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <%= link_to 'Back', urls_path, class: 'btn btn-danger btn-block' %>
+    </div>
+  </div>
+</div>
