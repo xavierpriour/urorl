@@ -4,7 +4,13 @@ User goes into the application, inputs an URL, and get back a shorter URL.
 This url, when typed/copied into a browser, redirects to the original URL.
 
 ## Install
-You need to have Ruby 2, Rails 4, and SQLite 3 installed first, then:
+
+Simplest way is to use docker: `docker-compose up`,
+then go to http://localhost:3000,
+you're all set.
+
+The old, manual way is you need to have
+Ruby 2, Rails 4, and SQLite 3 installed first, then:
 ```
 git clone https://github.com/xavierpriour/urorl.git
 cd urorl

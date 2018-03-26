@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  rails:
+    build: .
+    # The name our development image will use:
+    ports:
+      # This will bind your port 3000 with the container's port 3000, so we can
+      # use 'http://localhost:3000' to see our Rails app:
+      - 3000:3000
+    volumes:
+      # Mounts the app code (".") into the container's "/usr/src/app" folder:
+      - .:/app
+    # Keeps the stdin open, so we can attach to our app container's process and
+    # do stuff such as `byebug` or `binding.pry`:
+    # stdin_open: true
+    # Allows us to send signals (CTRL+C, CTRL+P + CTRL+Q) into the container:
+    # tty: true
+    environment:
+      # We'll use this env variable to make the log output gets directed
+      # to Docker:
+      RAILS_LOG_TO_STDOUT: "true"
